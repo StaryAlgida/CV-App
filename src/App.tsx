@@ -22,7 +22,7 @@ function App() {
       <Header />
       <div className="content">
         <Main person={person} setPerson={setPerson} />
-        <Cv />
+        <Cv person={person} />
       </div>
       <Footer />
     </>

@@ -33,7 +33,7 @@ function PersonalInfo({
   person: Person;
   setPerson: React.Dispatch<React.SetStateAction<Person>>;
 }) {
-  console.log(person.name);
+  console.log(person);
 
   return (
     <form className="personal-info">
@@ -50,21 +50,45 @@ function PersonalInfo({
       </div>
       <div className="input-group">
         <label htmlFor="email">Email</label>
-        <input type="email" name="email" id="" />
+        <input
+          value={person.email}
+          onChange={(e) => setPerson({ ...person, email: e.target.value })}
+          type="email"
+          name="email"
+          id=""
+        />
       </div>
       <div className="input-group">
         <label htmlFor="phone">Phone number</label>
-        <input type="text" name="phone" id="" />
+        <input
+          value={person.phone}
+          onChange={(e) => setPerson({ ...person, phone: e.target.value })}
+          type="text"
+          name="phone"
+          id=""
+        />
       </div>
       <div className="input-group">
         <label htmlFor="address">Address</label>
-        <input type="text" name="address" id="" />
+        <input
+          value={person.address}
+          onChange={(e) => setPerson({ ...person, address: e.target.value })}
+          type="text"
+          name="address"
+          id=""
+        />
       </div>
     </form>
   );
 }
 
-function Education() {
+function Education({
+  person,
+  setPerson,
+}: {
+  person: Person;
+  setPerson: React.Dispatch<React.SetStateAction<Person>>;
+}) {
   return (
     <form className="education">
       <h2 className="menu-section-title">Education</h2>
@@ -72,7 +96,13 @@ function Education() {
   );
 }
 
-function Work() {
+function Work({
+  person,
+  setPerson,
+}: {
+  person: Person;
+  setPerson: React.Dispatch<React.SetStateAction<Person>>;
+}) {
   return (
     <form className="work">
       <h2 className="menu-section-title">Experience</h2>
@@ -91,8 +121,8 @@ export default function Main({
     <div className="main-menu">
       <LoadClearButtons setPerson={setPerson} />
       <PersonalInfo person={person} setPerson={setPerson} />
-      <Education />
-      <Work />
+      <Education person={person} setPerson={setPerson} />
+      <Work person={person} setPerson={setPerson} />
     </div>
   );
 }

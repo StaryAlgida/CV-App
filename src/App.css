@@ -30,6 +30,24 @@ header {
   margin-bottom: 20px;
 }
 
+/* Cv */
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 21cm;
+  height: 4cm;
+  background-color: #0e374e;
+  text-align: center;
+}
+
+.more-info {
+  display: flex;
+  gap: 20px;
+}
+
 footer {
   text-align: center;
 }
