@@ -6,6 +6,10 @@ header {
   box-shadow: 0px 31px 60px -25px rgba(47, 47, 64, 1);
 }
 
+.black-color {
+  color: black;
+}
+
 .title {
   font-size: 3rem;
   font-weight: bold;
@@ -24,9 +28,12 @@ header {
 }
 
 .Cv {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8cm;
   width: 21cm;
   height: 29.7cm;
-  background-color: blanchedalmond;
+  background-color: white;
   margin-bottom: 20px;
 }
 
@@ -36,11 +43,19 @@ header {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 10px;
+  gap: 5px;
   width: 21cm;
   height: 4cm;
   background-color: #0e374e;
   text-align: center;
+}
+
+.header h1 {
+  font-size: 3.2rem;
+}
+
+.cv-info {
+  font-weight: bold;
 }
 
 .more-info {
@@ -48,6 +63,39 @@ header {
   gap: 20px;
 }
 
+.edu-title {
+  text-align: center;
+  background-color: #2f759e;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border-radius: 10px;
+}
+
+.education {
+  margin-left: 1.5cm;
+  margin-right: 1.5cm;
+}
+
+.education-container {
+  display: grid;
+  grid-template-rows: repeat(auto-fit, 60px);
+  margin-top: 20px;
+}
+
+.education-item {
+  display: flex;
+  gap: 20px;
+}
+
+.time-location,
+.school-degree {
+  display: flex;
+  flex-direction: column;
+}
+.time-location {
+  width: 200px;
+}
+/*  */
 footer {
   text-align: center;
 }

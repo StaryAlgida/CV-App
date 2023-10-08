@@ -1,4 +1,32 @@
-import Person from "../../interface/Person";
+import { Person } from "../../interface/Person";
+
+function Education({ person }: { person: Person }) {
+  return (
+    <div className="education">
+      <h2 className="edu-title">Education</h2>
+      <div className="education-container">
+        {person.education.map((edu) => {
+          return (
+            <div className="education-item" key={edu.id}>
+              <div className="time-location">
+                <span className="time black-color">
+                  {edu.startDate} - {edu.endDate}
+                </span>
+                <span className="location black-color">{edu.location}</span>
+              </div>
+              <div className="school-degree">
+                <span className="school black-color">
+                  <b>{edu.school}</b>
+                </span>
+                <span className="degree black-color">{edu.degree}</span>
+              </div>
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  );
+}
 
 export default function Cv({ person }: { person: Person }) {
   return (
@@ -17,7 +45,7 @@ export default function Cv({ person }: { person: Person }) {
           </span>
         </div>
       </div>
-      <div className="education"></div>
+      <Education person={person} />
       <div className="experience"></div>
     </div>
   );

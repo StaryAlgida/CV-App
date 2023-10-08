@@ -73,7 +73,7 @@ function EducationForm({
       newPerson.education.push({ ...eduInfo, id: uuidv1() });
     } else {
       const foundIndex = newPerson.education.findIndex((element) => {
-        element.id === eduInfo.id;
+        return element.id === eduInfo.id;
       });
       if (!_.isEqual(newPerson.education[foundIndex], eduInfo))
         newPerson.education[foundIndex] = { ...eduInfo };
@@ -81,11 +81,26 @@ function EducationForm({
 
     setPerson({ ...newPerson });
     setEduSate(true);
-    console.log(newPerson.education);
+    console.log("save", newPerson.education);
+  };
+
+  const deletEdu = () => {
+    if (eduInfo.id !== "") {
+      const newPerson = { ...person };
+      const index = newPerson.education.findIndex((element) => {
+        return element.id === eduInfo.id;
+      });
+      console.log(index);
+      if (index >= 0) {
+        newPerson.education.splice(index, 1);
+        setPerson({ ...newPerson });
+        setEduSate(true);
+      }
+    }
   };
 
   return (
-    <form action="" className="edu-form">
+    <form onSubmit={saveListner} className="edu-form">
       <div className="input-group">
         <label htmlFor="school">School</label>
         <input
@@ -94,6 +109,7 @@ function EducationForm({
           onChange={(e) => setEduInfo({ ...eduInfo, school: e.target.value })}
           name="school"
           id="school"
+          required
         />
       </div>
       <div className="input-group">
@@ -104,6 +120,7 @@ function EducationForm({
           onChange={(e) => setEduInfo({ ...eduInfo, degree: e.target.value })}
           name="degree"
           id="degree"
+          required
         />
       </div>
       <div className="input-group">
@@ -116,6 +133,7 @@ function EducationForm({
           }
           name="start-date"
           id="start-date"
+          required
         />
       </div>
       <div className="input-group">
@@ -126,6 +144,7 @@ function EducationForm({
           onChange={(e) => setEduInfo({ ...eduInfo, endDate: e.target.value })}
           name="end-date"
           id="end-date"
+          required
         />
       </div>
       <div className="input-group">
@@ -136,12 +155,13 @@ function EducationForm({
           onChange={(e) => setEduInfo({ ...eduInfo, location: e.target.value })}
           name="location"
           id="location"
+          required
         />
       </div>
       <div className="buttons">
-        <button>Delete</button>
+        <button onClick={deletEdu}>Delete</button>
         <button onClick={cencleListner}>Cencle</button>
-        <input type="button" onClick={saveListner} value="save" />
+        <input type="submit" value="Save" />
       </div>
     </form>
   );
@@ -157,7 +177,7 @@ export default function Educationfield({
   const [eduState, setEduSate] = useState(true);
   const [eduData, setEduData] = useState<Education>(person.education[0]);
   return (
-    <div className="education">
+    <div className="education-form">
       <h2 className="menu-section-title">Education</h2>
       {eduState ? (
         <DisplayEducation
