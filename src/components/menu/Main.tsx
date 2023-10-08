@@ -1,4 +1,6 @@
-import Person from "../../interface/Person";
+import { Person } from "../../interface/Person";
+import Educationfield from "./Education";
+import Work from "./Work";
 
 function LoadClearButtons({
   setPerson,
@@ -16,7 +18,6 @@ function LoadClearButtons({
     };
 
     setPerson(person);
-    console.log("clear");
   };
   return (
     <div className="clear-example">
@@ -33,8 +34,6 @@ function PersonalInfo({
   person: Person;
   setPerson: React.Dispatch<React.SetStateAction<Person>>;
 }) {
-  console.log(person);
-
   return (
     <form className="personal-info">
       <h2 className="menu-section-title">Personal Inforamtions</h2>
@@ -45,7 +44,7 @@ function PersonalInfo({
           value={person.name}
           onChange={(e) => setPerson({ ...person, name: e.target.value })}
           name="fullName"
-          id=""
+          id="fullName"
         />
       </div>
       <div className="input-group">
@@ -55,7 +54,7 @@ function PersonalInfo({
           onChange={(e) => setPerson({ ...person, email: e.target.value })}
           type="email"
           name="email"
-          id=""
+          id="email"
         />
       </div>
       <div className="input-group">
@@ -65,7 +64,7 @@ function PersonalInfo({
           onChange={(e) => setPerson({ ...person, phone: e.target.value })}
           type="text"
           name="phone"
-          id=""
+          id="phone"
         />
       </div>
       <div className="input-group">
@@ -75,37 +74,9 @@ function PersonalInfo({
           onChange={(e) => setPerson({ ...person, address: e.target.value })}
           type="text"
           name="address"
-          id=""
+          id="address"
         />
       </div>
-    </form>
-  );
-}
-
-function Education({
-  person,
-  setPerson,
-}: {
-  person: Person;
-  setPerson: React.Dispatch<React.SetStateAction<Person>>;
-}) {
-  return (
-    <form className="education">
-      <h2 className="menu-section-title">Education</h2>
-    </form>
-  );
-}
-
-function Work({
-  person,
-  setPerson,
-}: {
-  person: Person;
-  setPerson: React.Dispatch<React.SetStateAction<Person>>;
-}) {
-  return (
-    <form className="work">
-      <h2 className="menu-section-title">Experience</h2>
     </form>
   );
 }
@@ -121,7 +92,7 @@ export default function Main({
     <div className="main-menu">
       <LoadClearButtons setPerson={setPerson} />
       <PersonalInfo person={person} setPerson={setPerson} />
-      <Education person={person} setPerson={setPerson} />
+      <Educationfield person={person} setPerson={setPerson} />
       <Work person={person} setPerson={setPerson} />
     </div>
   );

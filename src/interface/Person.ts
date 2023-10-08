@@ -1,4 +1,5 @@
 interface Experience {
+  id: string;
   companyName: string;
   position: string;
   startDate: string;
@@ -8,6 +9,7 @@ interface Experience {
 }
 
 interface Education {
+  id: string;
   school: string;
   degree: string;
   startDate: string;
@@ -15,7 +17,7 @@ interface Education {
   location: string;
 }
 
-export default interface Person {
+interface Person {
   name: string;
   email: string;
   phone: string;
@@ -23,3 +25,5 @@ export default interface Person {
   education: Education[];
   experience: Experience[];
 }
+
+export type { Person, Education, Experience };
