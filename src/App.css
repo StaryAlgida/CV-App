@@ -95,6 +95,11 @@ header {
 .time-location {
   width: 200px;
 }
+
+.description {
+  width: 460px;
+  font-size: 0.9rem;
+}
 /*  */
 footer {
   text-align: center;

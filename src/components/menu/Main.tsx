@@ -1,6 +1,6 @@
 import { Person } from "../../interface/Person";
 import Educationfield from "./Education";
-import Work from "./Work";
+import ExperienceField from "./Experience";
 
 function LoadClearButtons({
   setPerson,
@@ -93,7 +93,7 @@ export default function Main({
       <LoadClearButtons setPerson={setPerson} />
       <PersonalInfo person={person} setPerson={setPerson} />
       <Educationfield person={person} setPerson={setPerson} />
-      <Work person={person} setPerson={setPerson} />
+      <ExperienceField person={person} setPerson={setPerson} />
     </div>
   );
 }

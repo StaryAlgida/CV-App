@@ -23,7 +23,18 @@ function App() {
         location: "Kielce Poland",
       },
     ],
-    experience: [],
+    experience: [
+      {
+        id: uuidv1(),
+        companyName: "Funny company",
+        position: "Jr. Front-end developer",
+        startDate: "10.2022",
+        endDate: "06.2023",
+        location: "Warsaw Poland",
+        description:
+          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur, sunt a! Nisi deleniti minus ullam, magnam explicabo modi iste aliquid illum alias ipsam rerum, delectus nam, commodi distinctio omnis vitae!",
+      },
+    ],
   });
 
   return (

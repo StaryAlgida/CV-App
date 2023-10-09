@@ -28,6 +28,37 @@ function Education({ person }: { person: Person }) {
   );
 }
 
+function Experience({ person }: { person: Person }) {
+  return (
+    <div className="education">
+      <h2 className="edu-title">Experience</h2>
+      <div className="education-container">
+        {person.experience.map((exp) => {
+          return (
+            <div className="education-item" key={exp.id}>
+              <div className="time-location">
+                <span className="time black-color">
+                  {exp.startDate} - {exp.endDate}
+                </span>
+                <span className="location black-color">{exp.location}</span>
+              </div>
+              <div className="school-degree">
+                <span className="school black-color">
+                  <b>{exp.companyName}</b>
+                </span>
+                <span className="degree black-color">{exp.position}</span>
+                <span className="description black-color">
+                  {exp.description}
+                </span>
+              </div>
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  );
+}
+
 export default function Cv({ person }: { person: Person }) {
   return (
     <div className="Cv">
@@ -46,7 +77,7 @@ export default function Cv({ person }: { person: Person }) {
         </div>
       </div>
       <Education person={person} />
-      <div className="experience"></div>
+      <Experience person={person} />
     </div>
   );
 }
