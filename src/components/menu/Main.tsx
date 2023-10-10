@@ -1,4 +1,5 @@
 import { Person } from "../../interface/Person";
+import data from "../data";
 import Educationfield from "./Education";
 import ExperienceField from "./Experience";
 
@@ -19,10 +20,17 @@ function LoadClearButtons({
 
     setPerson(person);
   };
+  const load = () => {
+    setPerson({ ...data });
+  };
   return (
     <div className="clear-example">
-      <button onClick={clear}>Clear Resume</button>
-      <button>Load Example</button>
+      <button className="clear" onClick={clear}>
+        Clear Resume
+      </button>
+      <button className="load" onClick={load}>
+        Load Example
+      </button>
     </div>
   );
 }

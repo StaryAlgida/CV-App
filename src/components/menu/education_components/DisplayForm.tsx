@@ -113,9 +113,15 @@ export default function DisplayForm({
         />
       </div>
       <div className="buttons">
-        <button onClick={deletEdu}>Delete</button>
-        <button onClick={cencleListner}>Cencle</button>
-        <input type="submit" value="Save" />
+        <button className="delete" onClick={deletEdu}>
+          Delete
+        </button>
+        <div>
+          <button className="cencle" onClick={cencleListner}>
+            Cencle
+          </button>
+          <input className="submit" type="submit" value="Save" />
+        </div>
       </div>
     </form>
   );

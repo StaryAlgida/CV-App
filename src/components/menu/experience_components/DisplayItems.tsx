@@ -42,7 +42,9 @@ export default function DisplayItems({
           </div>
         );
       })}
-      <button onClick={expAdd}>+ Experience</button>
+      <button className="add-button" onClick={expAdd}>
+        + Experience
+      </button>
     </>
   );
 }

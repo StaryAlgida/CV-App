@@ -41,7 +41,9 @@ export default function DisplayItems({
           </div>
         );
       })}
-      <button onClick={eduAdd}>+ Education</button>
+      <button className="add-button" onClick={eduAdd}>
+        + Education
+      </button>
     </>
   );
 }
