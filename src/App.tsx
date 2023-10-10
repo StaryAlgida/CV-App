@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { v1 as uuidv1 } from "uuid";
 import "./App.css";
 import Footer from "./components/Footer";
 import Header from "./components/header/Header";
